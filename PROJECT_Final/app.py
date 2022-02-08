@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, request, redirect, url_for, session 
 
 from flask_mysqldb import MySQL 
@@ -32,11 +33,11 @@ app.config['MYSQL_DB'] = 'school'
 
 mysql = MySQL(app) 
 
-  
 
 @app.route('/') 
 def home():
     return render_template('home.html')
+
 
 @app.route('/login', methods =['GET', 'POST'])
 def login(): 
@@ -78,7 +79,10 @@ def login():
 def index():
     msg = '' 
 
-    if request.method == 'POST' and 'subject' in request.form and 'mark' in request.form and 'attendence' in request.form : 
+    if request.method == 'POST' and 'name' in request.form and 'sid' in request.form and 'subject' in request.form and 'mark' in request.form and 'attendence' in request.form : 
+        name = request.form['name'] 
+
+        student_id = request.form['sid']
 
         subject = request.form['subject'] 
 
@@ -87,15 +91,25 @@ def index():
         attendence = request.form['attendence'] 
 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor) 
-        cursor.execute('INSERT INTO data VALUES (NULL, % s, % s, % s)', (subject, mark, attendence, )) 
+        cursor.execute('INSERT INTO data (subject, mark, attendence, student_id , name)  VALUES (% s, % s, % s, % s,% s)',(subject, mark, attendence, student_id , name) )
 
         mysql.connection.commit() 
 
         msg = 'You have entered data successfully !'
-        return subject,mark,attendence
+
         
-       
-    return render_template('index.html',msg=msg)
+        
+        return redirect(url_for('show'))
+
+   
+@app.route('/show') 
+def show():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor) 
+    cursor.execute("SELECT * FROM data")
+    user=cursor.fetchall()
+    print(user)
+    
+    return render_template("show.html",user=user,headers=user[0].keys())
 
 @app.route('/logout') 
 
@@ -165,11 +179,12 @@ def student():
 
     msg = '' 
 
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form: 
-
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form : 
+        
         username = request.form['username'] 
 
         password = request.form['password'] 
+        
 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor) 
 
@@ -187,20 +202,27 @@ def student():
             
 
             msg="user logged in"
-            return render_template('studentdata.html', msg = msg) 
+            return redirect(url_for('studentdata')) 
             
 
         else: 
 
             msg = 'Incorrect username / password !'
 
-    return render_template('student.html', msg = msg) 
+    return render_template('student.html',msg=msg)
 @app.route('/studentdata') 
 def studentdata():
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor) 
 
-     return render_template('studentdata.html')
+        cursor.execute('SELECT * FROM data WHERE student_id = % s', (session['id'], )) 
 
-  
+        result = cursor.fetchall() 
+
+        print(result)
+        return render_template('studentdata.html',result=result,headers=result[0].keys())
+        
+        
+
 
 if __name__ == "__main__":
     app.run()
