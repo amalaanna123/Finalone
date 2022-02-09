@@ -1,0 +1,21 @@
+<form action="" method="POST" >
+    <h1>Enter Data </h1><br><br>
+    <label>mark:</label>
+    <input type="text" placeholder="Enter Student Name" id="mark" name="mark"><br><br>
+    
+    <input type="submit" class="btn" value="Submit"></br></br> 
+</form>
+<table border="1">
+    {% for header in headers%}
+            <th>{{header}}</th>
+             {%endfor%}
+             {% for row in cur%}
+        <tr>
+            {%for value in row.values()%}
+            <td>{{value}}</td>
+            {%endfor%}
+        </tr>
+    {% endfor %}
+</table></br>
+
+<a href="{{ url_for('logout') }}" class="btn">Logout</a> 

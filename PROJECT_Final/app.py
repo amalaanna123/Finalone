@@ -39,6 +39,7 @@ def home():
     return render_template('home.html')
 
 
+
 @app.route('/login', methods =['GET', 'POST'])
 def login(): 
 
@@ -107,11 +108,33 @@ def show():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor) 
     cursor.execute("SELECT * FROM data")
     user=cursor.fetchall()
-    print(user)
+    if user:
+            return render_template("show.html",user=user,headers=user[0].keys())
+
     
-    return render_template("show.html",user=user,headers=user[0].keys())
+@app.route('/mark',methods =['GET', 'POST']) 
+def mark():
+        msg=''
+        if request.method == 'POST' and 'mark' in request.form:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor) 
+            mark = request.form['mark']
+            cursor.execute('SELECT * FROM data WHERE mark <= % s',(mark,))
+            cur=cursor.fetchall()
+            if cur:
+                print(cur)
+
+                return render_template("mark.html",cur=cur,headers=cur[0].keys())
+        elif request.method == 'POST': 
+
+            msg = 'Please fill out the form !'
+
+        return render_template('mark.html', msg = msg) 
+
+       
+
 
 @app.route('/logout') 
+
 
 def logout(): 
 
@@ -214,9 +237,10 @@ def student():
 def studentdata():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor) 
 
-        cursor.execute('SELECT * FROM data WHERE student_id = % s', (session['id'], )) 
+        cursor.execute('SELECT subject,attendence,mark FROM data WHERE student_id = % s', (session['id'], )) 
 
         result = cursor.fetchall() 
+
 
         print(result)
         return render_template('studentdata.html',result=result,headers=result[0].keys())

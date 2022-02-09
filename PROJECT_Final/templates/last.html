@@ -1,0 +1,12 @@
+<table border="1">
+    {% for header in headerss%}
+            <th>{{header}}</th>
+             {%endfor%}
+             {% for row in user%}
+        <tr>
+            {%for value in row.values()%}
+            <td>{{value}}</td>
+            {%endfor%}
+        </tr>
+    {% endfor %}
+</table>
