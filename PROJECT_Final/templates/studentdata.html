@@ -1,9 +1,10 @@
+<body>
 <center>
 <h3 class="bottom"> 
 
-    Hi {{session.username}}!!</br></br> Welcome to the student page</br></br>Your Report Card :               
+    Welcome {{session.username}}!!</h3></br></br>Your Report Card :               
 
-</h3></br>
+</br>
 <table border="1">
     {% for header in headers%}
     <th>{{header}}</th>
@@ -135,3 +136,5 @@ function downloadCSVFile(csv_data) {
 </br>
 <div><center><a href="{{ url_for('logout') }}" class="btn">Logout</a></center> </div>
 </center>
+<link rel="stylesheet" href="../static/show.css">  
+</body>

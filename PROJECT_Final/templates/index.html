@@ -15,20 +15,15 @@
 
           <div align="center" class="border"> 
 
-             <div class="header"> 
-
-                <h1 class="word">Index</h1> 
-
-             </div></br></br></br> 
 
                 <h1 class="bottom"> 
 
-                     Hi {{session.username}}!!</br></br> Welcome to the index page...                  
+                    Welcome {{session.username}}!!           
 
-                </h1></br></br></br> 
-                <form action="{{url_for('index')}}" method="POST" >
+                </h1></br></br>
+                <form action="{{url_for('index')}}" method="POST" class="for" >
                     <div class="msg">{{ msg }}</div> 
-                    <h1>Enter Data</h1><br><br>
+                    <h1>Enter Data</h1><br>
                     <label>Student Name:</label>
                     <input type="text" placeholder="Enter Student Name" id="name" name="name"><br><br>
                     <label>Student Id:</label>
@@ -42,11 +37,11 @@
                      <button type="submit">submit</button></br> 
                 
                 </form>
-                <a href="{{ url_for('logout') }}" class="btn">Logout</a> 
+               
                         
 
           </div> 
 
         </div> 
-
+        <link rel="stylesheet" href="../static/index.css"> 
     </body>

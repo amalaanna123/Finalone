@@ -1,9 +1,12 @@
-<table border="1">
+<body>
+    <h1>Mark of all Students</h1>
+    <div class="d">
+    <table border="1" class="b" align="center" color="white" >
     {% for header in headers%}
-            <th>{{header}}</th>
+            <th  font-color="white">{{header}}</th>
              {%endfor%}
              {% for row in user%}
-        <tr>
+        <tr  font-color="white">
             {%for value in row.values()%}
             <td>{{value}}</td>
             {%endfor%}
@@ -17,6 +20,7 @@
 </button></br></br>
 
 </center>
+
 
 
 <script type="text/javascript">
@@ -125,8 +129,9 @@ function downloadCSVFile(csv_data) {
 }
 
 </script>
-<a href="{{ url_for('mark') }}" class="btn">show marks</a> &nbsp;&nbsp;
-                        
+<a href="{{ url_for('mark') }}" class="btn" color="white">show marks</a> &nbsp;&nbsp;
 <a href="{{ url_for('logout') }}" class="btn">Logout</a> 
+<link rel="stylesheet" href="../static/show.css">  
+</body>
 
 

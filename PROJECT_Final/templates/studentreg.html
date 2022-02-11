@@ -81,35 +81,34 @@
 
              <div class="header"> 
 
-                <h1 class="word">Register</h1> 
+                <h1 class="word">Student Register</h1> 
 
-            
+         
 
-            
+        
 
-                <form action="{{ url_for('register') }}" method="post"> 
+                <form action="{{ url_for('studentreg') }}" method="post"> 
 
                   <div class="msg">{{ msg }}</div> 
-                    <label>username</label>
+
                     <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br> 
-                    <label>password</label>
+
                     <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br> 
-                    <label>email</label>
-                    <input id="email" name="email" type="text" placeholder="Enter Your Email ID" class="textbox"/></br></br> 
+
+                    <input id="standard" name="standard" type="text" placeholder="Enter Your standard" class="textbox"/></br></br> 
 
                     <input type="submit" class="btn" value="Sign Up"></br> 
 
                 </form> 
 
-        
+            </h2> 
 
-            <p class="bottom">Already have an account? </br><a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p> 
+            <p class="bottom">Already have an account? </br><a class="bottom" href="{{url_for('student')}}"> Sign In here</a></p> 
 
           </div> 
-          <link rel="stylesheet" href="../static/login.css"> 
 
-     
-
+        </div> 
+        <link rel="stylesheet" href="../static/student.css">  
     </body> 
 
 </html> 

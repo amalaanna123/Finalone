@@ -1,0 +1,12 @@
+body{
+    background-image: url("schootechdata.jpg");
+    text-align:center;
+    position: center;
+    background-position: center;
+    background-size: cover;
+}
+.c{
+    text-align: center;
+    position: center;
+
+}

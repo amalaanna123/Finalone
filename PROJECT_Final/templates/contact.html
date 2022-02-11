@@ -1,16 +1,5 @@
-<html> 
-
-    <head> 
-
-        <meta charset="UTF-8"> 
-
-        <title> Register </title> 
-             
-
-    </head> 
-
-    <body>
-      <style>
+<html>
+    <style>
         body {
           margin: 0;
           font-family: Arial, Helvetica, sans-serif;
@@ -64,8 +53,8 @@
         <body>
         
         <div class="topnav">
-          <a class="active" href="{{url_for('home')}}" >Home</a>
-          <a href="{{ url_for('contact') }}">Contact</a>
+          <a class="active" href="{{ url_for('home') }}">Home</a>
+          <a href="#contact">Contact</a>
           <a href="{{ url_for('login') }}">Teacher Login</a>
         <a href="{{ url_for('student') }}">Student Login</a>
           <div class="topnav-right">
@@ -76,40 +65,17 @@
           </div>
 
         </div>
-
-
-
-             <div class="header"> 
-
-                <h1 class="word">Register</h1> 
-
+        <center>
+            <h1 id="l" >Contact US</h1> </center>
+            <p id="b">OUR ADDRESS</br></br>
+                Muthoot Institute of Technology and Science Varikoli P.O, Puthencruz- 682308</br></br>
+                PHONE</br></br>
+                0484-2732111</br>
+                0484-2732100
+            </p>
             
-
+           
             
-
-                <form action="{{ url_for('register') }}" method="post"> 
-
-                  <div class="msg">{{ msg }}</div> 
-                    <label>username</label>
-                    <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br> 
-                    <label>password</label>
-                    <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br> 
-                    <label>email</label>
-                    <input id="email" name="email" type="text" placeholder="Enter Your Email ID" class="textbox"/></br></br> 
-
-                    <input type="submit" class="btn" value="Sign Up"></br> 
-
-                </form> 
-
-        
-
-            <p class="bottom">Already have an account? </br><a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p> 
-
-          </div> 
-          <link rel="stylesheet" href="../static/login.css"> 
-
-     
-
-    </body> 
-
-</html> 
+            <link rel="stylesheet" href="../static/contact.css">  
+</body>
+</html>

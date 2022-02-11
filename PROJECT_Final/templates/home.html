@@ -3,17 +3,92 @@
     <head>
         <title>School</title>
     </head>
-
-    <body>
-    <div>
-        <center>
-    <h1 id="a" >Welcome to St.Stephan Public School Login</h1>
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+          
+        }
+        .o{
+            background-image: "download.png";
+        }
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+          top:-20px;
+        }
         
-            <button ><a href="{{ url_for('login') }}">Teacher</a></button>
-            <button><a href="{{ url_for('student') }}">Student</a></button>
-           
+        .topnav a {
+          float: right;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+        
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+        
+        .topnav a.active {
+          background-color: #04AA6D;
+          color: white;
+        }
+        
+        .topnav-right {
+          float: left;
+          color: #ddd;
+        
+        }
+        .n{
+            margin-left: 1.5cm;
+            font-size: 17px;
+        }
+        .k{
+            float: left;
+            position: relative;
+            top: -50px;
+          
+        }
+        </style>
+        </head>
+        <body>
+        
+        <div class="topnav">
+          <a class="active" >Home</a>
+          <a href="{{ url_for('contact') }}">Contact</a>
+          <a href="{{ url_for('login') }}">Teacher Login</a>
+        <a href="{{ url_for('student') }}">Student Login</a>
+          <div class="topnav-right">
+        <h3 class="n">Book International School</h3>
+        <div class="k">
+            
+        </div>
+          </div>
 
+        </div>
+        
+
+        
+ 
+
+
+
+    <div class="o">
+
+        <center>
+    <h1 id="l" >Welcome to Book International School</h1>
+           
+    <h3>About</h3>  
+    <p id="p" > 
+    Muthoot Institute of Technology and Science (MITS) is promoted by Muthoot M. George Institute of Technology, a Section 25 Company within the Muthoot Group. MITS is a self financing technical institution offering undergraduate engineering programmes, situated in the industrial suburb of Kochi, close to the Smart City and Info Park, approximately 15 kms from Vytilla Junction towards Muvattupuzha on the Cochin Madurai National Highway.</br>  </br>
+        
+      The promoters with their commanding presence in the domains of Financial Services, Hospitality, Healthcare, Renewable Energy and Information Technology, are committed to building MITS as a centre of excellence, focusing purely on merit. This “temple of learning” will provide to the students, state-of-the-art infrastructure, highly qualified and proficient teachers from various faculty of engineering and allied streams, embedded in a conducive environment where focus will be on their harmonious development.</p>
         </center>
     </div>
-</body>    
+    <link rel="stylesheet" href="../static/mark.css">  
+</body>  
+
 </html>

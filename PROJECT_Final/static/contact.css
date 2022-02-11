@@ -1,0 +1,21 @@
+#b{border:#c2bdb7 ;
+    width: 300px;
+    padding: 15px;
+    margin: solid;
+    height: 180px;
+    font-style: bold;
+    margin-left: 600px;
+    margin-top: 100px;
+    color: rgb(8, 8, 8);
+    background-color: #c2bdb7cc;
+    opacity: 0.8;
+    text-align: center;
+    
+    }
+    .k{
+        background-image: url("download.png");
+        background-position: center;
+         height:40px;
+         width:40px;
+         background-size: cover;
+    }

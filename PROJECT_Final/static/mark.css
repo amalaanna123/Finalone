@@ -1,0 +1,29 @@
+body{
+    font-size: x-large;
+    text-align: center;
+    background-image:url("b5.jpg");
+    background-position: center;
+    background-size: cover;
+    opacity: 0.8;
+}
+#p{border:#c2bdb7 ;
+width: 1000px;
+padding: 15px;
+margin: solid;
+height: 320px;
+font-style: oblique;
+margin-left: 10px;
+margin-top: 40px;
+color: rgb(8, 8, 8);
+background-color: #c2bdb7;
+opacity: 0.8;
+text-align: left;
+
+}
+.k{
+    background-image: url("download.png");
+    background-position: center;
+     height:40px;
+     width:40px;
+     background-size: cover;
+}
